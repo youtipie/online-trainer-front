@@ -1,8 +1,13 @@
 import './App.css';
+import Profile from "./components/Profile/Profile";
+import Footer from "./components/Footer/Footer";
 
 function App() {
     return (
-        <main></main>
+        <>
+            <Profile/>
+            <Footer/>
+        </>
     );
 }
 
