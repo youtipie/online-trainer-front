@@ -11,11 +11,22 @@
 footer {
     text-transform: none;
     border-radius: 15px;
-    padding: 3%;
+    background-color: #2a2a2a;
+}
+
+.scroll-container {
     display: flex;
+    padding: 3%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
     justify-content: space-between;
     align-items: flex-end;
-    background-color: #2a2a2a;
+    scroll-snap-type: x mandatory;
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
 }
 
 .footer-item img {
@@ -28,10 +39,13 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-width: 18%;
+    scroll-snap-align: center;
 }
 
 .selected {
     text-transform: uppercase;
+    filter: brightness(125%);
     color: #dbd098;
 }
 
