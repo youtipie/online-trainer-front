@@ -1,6 +1,8 @@
 import React from 'react';
 import avatarImg from "./images/avatar.png";
 import settingsIcon from "./images/settings-icon.png";
+import "./profile-navbar.css"
+
 
 const ProfileNavbar = () => {
     return (

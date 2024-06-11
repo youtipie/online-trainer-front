@@ -1,0 +1,42 @@
+/*--------------------CONTENT SECTION--------------------*/
+
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #333333;
+    margin: 10em 2% 10em;
+    padding-bottom: 10%;
+    border-radius: 15px;
+}
+
+#content h1 {
+    font-weight: 700;
+    font-size: 2.1em;
+    margin: 5% auto 2%;
+}
+
+.photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chad-image {
+    width: 60%;
+    border-radius: 1.5em;
+    border: 3px solid #c2c4c7;
+    padding: 1%;
+    margin: 0 5%;
+}
+
+.arrow {
+    width: 8%;
+    transition: transform .2s;
+}
+
+.arrow:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}

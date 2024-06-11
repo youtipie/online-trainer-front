@@ -4,6 +4,8 @@ import trainIcon from "./images/train-icon.png";
 import profileIcon from "./images/profile-icon.png";
 import eatIcon from "./images/eat-icon.png";
 import rankIcon from "./images/rank-icon.png";
+import "./footer.css";
+
 
 const Footer = () => {
     return (

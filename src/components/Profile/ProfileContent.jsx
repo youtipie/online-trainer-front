@@ -1,7 +1,9 @@
 import React from 'react';
-import leftArrow from "./images/left-arrow.png"
-import rightArrow from "./images/right-arrow.png"
-import chad from "./images/chad.png"
+import leftArrow from "./images/left-arrow.png";
+import rightArrow from "./images/right-arrow.png";
+import chad from "./images/chad.png";
+import "./profile-content.css";
+
 
 const ProfileContent = () => {
     return (

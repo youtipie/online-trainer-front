@@ -1,0 +1,41 @@
+/*--------------------FOOTER SECTION--------------------*/
+
+#footer {
+    position: fixed;
+    padding: 0 2% 2%;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+footer {
+    text-transform: none;
+    border-radius: 15px;
+    padding: 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-color: #2a2a2a;
+}
+
+.footer-item img {
+    width: 3.5em;
+    height: 3.5em;
+}
+
+.footer-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected {
+    text-transform: uppercase;
+    color: #dbd098;
+}
+
+.selected img {
+    width: 4em;
+    height: 4em;
+}
