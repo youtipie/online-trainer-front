@@ -1,31 +1,48 @@
 body {
-  margin: 0;
-  background-color: #1b1b1b;
-  box-sizing: border-box;
-  font-family: "Libre Franklin", sans-serif;
-  font-weight: 400;
-  font-size: 3vw;
-  color: #adadad;
+    margin: 0;
+    background-color: #1b1b1b;
+    box-sizing: border-box;
+    font-family: "Libre Franklin", sans-serif;
+    font-weight: 400;
+    font-size: 3vw;
+    color: #adadad;
 }
 
 * {
-  box-sizing: border-box
+    box-sizing: border-box
 }
 
 .line {
-  position: absolute;
-  background-color: #c3c5c8;
-  margin: auto;
-  width: 100%;
-  height: 10%;
-  filter: blur(100px);
-  z-index: -1;
+    position: absolute;
+    background-color: #c3c5c8;
+    margin: auto;
+    width: 100%;
+    height: 10%;
+    filter: blur(100px);
+    z-index: -1;
 }
 
 .line-top {
-  top: 15%;
+    top: 15%;
 }
 
 .line-bottom {
-  bottom: 15%;
+    bottom: 15%;
+}
+
+.link {
+    cursor: text;
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s;
+}
+
+.link:hover {
+    cursor: pointer;
+    filter: brightness(125%);
+    transform: scale(1.1);
 }

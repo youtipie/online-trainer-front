@@ -1,6 +1,6 @@
 import React from 'react';
-import ProfileNavbar from "./ProfileNavbar";
-import ProfileContent from "./ProfileContent";
+import ProfileNavbar from "./components/ProfileNavbar";
+import ProfileContent from "./components/ProfileContent";
 
 
 const Profile = () => {
