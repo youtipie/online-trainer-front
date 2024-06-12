@@ -6,6 +6,8 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 function App() {
     return (
         <>
+            <div className="line line-top"></div>
+            <div className="line line-bottom"></div>
             <BrowserRouter>
                 <Footer/>
                 <Routes>

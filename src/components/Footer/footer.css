@@ -12,11 +12,12 @@ footer {
     text-transform: none;
     border-radius: 15px;
     background-color: #2a2a2a;
+    line-height: 0;
 }
 
 .scroll-container {
     display: flex;
-    padding: 3%;
+    padding: 3% 3% 1%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -27,6 +28,12 @@ footer {
 
 .scroll-container::-webkit-scrollbar {
     display: none;
+}
+
+.footer-img-container {
+    background-color: #494949;
+    padding: 0.4em;
+    border-radius: 10px;
 }
 
 .footer-item img {
@@ -41,15 +48,11 @@ footer {
     align-items: center;
     min-width: 18%;
     scroll-snap-align: center;
+    /*margin: 0.5em;*/
 }
 
 .selected {
     text-transform: uppercase;
     filter: brightness(125%);
     color: #dbd098;
-}
-
-.selected img {
-    width: 4em;
-    height: 4em;
 }

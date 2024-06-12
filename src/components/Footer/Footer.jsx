@@ -24,23 +24,25 @@ const Footer = () => {
     const currentPage = useLocation();
 
     useEffect(() => {
-        const scrollContainer = document.querySelector('.scroll-container');
-        if (scrollContainer && footerItems.length) {
-            const selectedElement = document.querySelector('.selected');
-            if (selectedElement) {
-                const containerWidth = scrollContainer.offsetWidth;
-                const elementWidth = selectedElement.offsetWidth;
-                const elementOffsetLeft = selectedElement.offsetLeft;
+        if (currentPage.pathname === "/" || currentPage.pathname === "/profile") {
+            const scrollContainer = document.querySelector('.scroll-container');
+            if (scrollContainer && footerItems.length) {
+                const selectedElement = document.querySelector('.selected');
+                if (selectedElement) {
+                    const containerWidth = scrollContainer.offsetWidth;
+                    const elementWidth = selectedElement.offsetWidth;
+                    const elementOffsetLeft = selectedElement.offsetLeft;
 
-                const scrollPosition = elementOffsetLeft - (containerWidth / 2) + (elementWidth / 2);
+                    const scrollPosition = elementOffsetLeft - (containerWidth / 2) + (elementWidth / 2);
 
-                scrollContainer.scrollTo({
-                    left: scrollPosition,
-                    behavior: 'smooth'
-                });
+                    scrollContainer.scrollTo({
+                        left: scrollPosition,
+                        behavior: 'smooth'
+                    });
+                }
             }
         }
-    }, []);
+    }, [currentPage]);
 
     return (
         <section id="footer">
@@ -54,7 +56,9 @@ const Footer = () => {
                                     className={"link" + (isSelected ? " selected" : "")}
                                     to={item.route}
                                 >
-                                    <img src={item.img} alt={`${item.text} icon`}/>
+                                    <div className="footer-img-container">
+                                        <img src={item.img} alt={`${item.text} icon`}/>
+                                    </div>
                                     <p>{item.text}</p>
                                 </Link>
                             </div>
