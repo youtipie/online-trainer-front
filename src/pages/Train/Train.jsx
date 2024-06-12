@@ -1,6 +1,7 @@
 import React from 'react';
 import "./train.css"
 import CategorySelect from "./components/CategorySelect";
+import TrainContent from "./components/TrainContent";
 
 const categories = [
     {category: "Тренажерний зал", subcategory: ""},
@@ -20,9 +21,7 @@ const Train = () => {
                 setSelectedCategory={setSelectedCategory}
                 categories={categories}
             />
-            <div className="content-container main-content">
-                <h1>Content</h1>
-            </div>
+            <TrainContent/>
         </>
     );
 };

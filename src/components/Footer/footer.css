@@ -1,6 +1,7 @@
 /*--------------------FOOTER SECTION--------------------*/
 
 #footer {
+    z-index: 1000;
     position: fixed;
     padding: 0 2% 2%;
     width: 100%;
