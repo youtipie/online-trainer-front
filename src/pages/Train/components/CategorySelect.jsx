@@ -1,5 +1,5 @@
 import React from 'react';
-import whiteArrowDown from "../images/white-arrow-down.png"
+import whiteArrowDown from "../../../assets/images/white-arrow-down.png"
 
 
 const CategorySelect = ({selectedCategory, setSelectedCategory, setLevels, categories}) => {

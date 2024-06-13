@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
-import progressIcon from "./images/progress-icon.png";
-import trainIcon from "./images/train-icon.png";
-import profileIcon from "./images/profile-icon.png";
-import eatIcon from "./images/eat-icon.png";
-import rankIcon from "./images/rank-icon.png";
-import wholeIcon from "./images/whole-icon.png";
-import mentalIcon from "./images/mental-icon.png";
+import progressIcon from "../../assets/images/progress-icon.png";
+import trainIcon from "../../assets/images/train-icon.png";
+import profileIcon from "../../assets/images/profile-icon.png";
+import eatIcon from "../../assets/images/eat-icon.png";
+import rankIcon from "../../assets/images/rank-icon.png";
+import wholeIcon from "../../assets/images/whole-icon.png";
+import mentalIcon from "../../assets/images/mental-icon.png";
 import "./footer.css";
 import {Link, useLocation} from "react-router-dom";
 
