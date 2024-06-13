@@ -2,17 +2,22 @@ import React from 'react';
 import whiteArrowDown from "../images/white-arrow-down.png"
 
 
-const CategorySelect = ({selectedCategory, setSelectedCategory, categories}) => {
+const CategorySelect = ({selectedCategory, setSelectedCategory, setLevels, categories}) => {
     const [isSelectVisible, setIsSelectVisible] = React.useState(false);
 
     function selectCategory(category) {
         setSelectedCategory(category)
+        setLevels(category.levels)
         setIsSelectVisible(false)
     }
 
     return (
         <>
-            {isSelectVisible && <div className="category-options-backdrop"></div>}
+            {
+                isSelectVisible
+                &&
+                <div className="category-options-backdrop" onClick={() => setIsSelectVisible(false)}></div>
+            }
             <div className="content-container select-menu">
                 <div className="category-select"
                      onClick={() => setIsSelectVisible(prev => !prev)}>
@@ -38,9 +43,10 @@ const CategorySelect = ({selectedCategory, setSelectedCategory, categories}) => 
                     />
                 </div>
             </div>
-            <div className={"category-options" + (isSelectVisible ? " visible" : "")}>
+            <div className={"category-options" + (isSelectVisible ? " visible" : " invisible")}>
                 {categories.filter(item => item !== selectedCategory).map(category =>
-                    <div className="category-select category" onClick={() => selectCategory(category)}>
+                    <div key={category.category + category.subcategory} className="category-select category"
+                         onClick={() => selectCategory(category)}>
                         <h1 className="category-name">{category.category}</h1>
                         {
                             category.subcategory
