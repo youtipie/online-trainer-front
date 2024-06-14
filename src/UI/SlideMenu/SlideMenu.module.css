@@ -1,4 +1,4 @@
-.slide-menu-select {
+.slide-menu-select, .slide-menu-option {
     height: 5em;
     display: flex;
     justify-content: center;
@@ -27,13 +27,7 @@
 }
 
 .slide-menu-option {
-    height: 5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 2% 0;
-    border-radius: 15px;
-    background-color: #494949;
 }
 
 .slide-menu-select-text-wrapper {
