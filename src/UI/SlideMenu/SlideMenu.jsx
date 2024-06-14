@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import classes from './SlideMenu.module.css';
-import arrowDown from "../../pages/Train/images/arrow-down.png";
+import arrowDown from "../../assets/images/arrow-down.png";
 
 
 const SlideMenu = (props) => {
