@@ -5,7 +5,7 @@ import SlideMenu from "../../../UI/SlideMenu/SlideMenu";
 const TrainContent = ({levels}) => {
 
     return (
-        <div className="content-container main-content">
+        <div className="content-container train-content">
             {levels.map(level =>
                 <SlideMenu
                     select={level}

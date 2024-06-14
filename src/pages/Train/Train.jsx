@@ -7,7 +7,7 @@ import TrainContent from "./components/TrainContent";
 // IN FUTURE WILL USE HOOKS TO GET DATA FROM SERVER
 const categories = [
     {
-        category: "Тренажерний зал", subcategory: "", levels: [
+        name: "Тренажерний зал", subname: "", levels: [
             {
                 name: "Рівень 1",
                 subname: "Легкий",
@@ -36,7 +36,7 @@ const categories = [
         ]
     },
     {
-        category: "Stretching", subcategory: "", levels: [
+        name: "Stretching", subname: "", levels: [
             {
                 name: "Рівень 1",
                 subname: "Легкий",
@@ -65,7 +65,7 @@ const categories = [
         ]
     },
     {
-        category: "Домашні тренування", subcategory: "Гантелі - Резина", levels: [
+        name: "Домашні тренування", subname: "Гантелі - Резина", levels: [
             {
                 name: "Рівень 1",
                 subname: "Легкий",
@@ -84,7 +84,7 @@ const categories = [
         ]
     },
     {
-        category: "Домашні тренування", subcategory: "Власна вага", levels: [
+        name: "Домашні тренування", subname: "Власна вага", levels: [
             {
                 name: "Рівень 1",
                 subname: "Легкий",

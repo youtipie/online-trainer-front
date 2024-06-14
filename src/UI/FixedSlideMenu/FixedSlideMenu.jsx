@@ -1,12 +1,16 @@
 import React from 'react';
 import classes from "./FixedSlideMenu.module.css"
-import whiteArrowDown from "../../pages/Train/images/white-arrow-down.png";
+import whiteArrowDown from "../../assets/images/white-arrow-down.png";
 
 const FixedSlideMenu = ({select, options, onClick}) => {
     const [isSelectVisible, setIsSelectVisible] = React.useState(false);
 
     const iconClasses = [classes["fixed-slide-menu-icon"], isSelectVisible ? classes["up"] : classes["down"]].join(" ");
     const optionsClasses = [classes["fixed-slide-menu-options"], isSelectVisible ? classes["visible"] : classes["invisible"]].join(" ");
+
+    function handleClick(option) {
+        onClick(option, () => setIsSelectVisible(false))
+    }
 
     return (
         <>
@@ -43,7 +47,7 @@ const FixedSlideMenu = ({select, options, onClick}) => {
             <div className={optionsClasses}>
                 {options.filter(item => item !== select).map(option =>
                     <div key={option.name + option.subname} className={classes["fixed-slide-menu-option"]}
-                         onClick={() => onClick(option)}>
+                         onClick={() => handleClick(option)}>
                         <div className={classes["fixed-slide-menu-select-text-wrapper"]}>
                             <h1 className={classes["name"]}>{option.name}</h1>
                             {
