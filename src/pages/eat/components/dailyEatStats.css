@@ -1,0 +1,33 @@
+
+.daily-eat-stats {
+    display: flex;
+}
+
+.daily-eat-stats-center-text {
+    margin: auto;
+}
+
+.stats-text {
+    margin: 0.1em 0;
+}
+
+.stats-text.bold {
+    font-weight: 700;
+}
+
+.stats-text.small {
+    font-size: .9em;
+}
+
+.eat-stats-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.eat-stats-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
