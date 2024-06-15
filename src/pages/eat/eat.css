@@ -1,0 +1,11 @@
+.calendar-open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.eat-times {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

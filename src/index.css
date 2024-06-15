@@ -57,6 +57,14 @@ body {
     position: relative;
 }
 
+.content-container.light {
+    background-color: #494949;
+    padding: 2%;
+}
+
+.no-footer-overlap {
+    margin-bottom: 9em;
+}
 
 .overlap {
     z-index: 2;
