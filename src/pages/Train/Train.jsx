@@ -111,12 +111,14 @@ const Train = () => {
 
     return (
         <>
-            <CategorySelect
-                selectedCategory={selectedCategory}
-                setSelectedCategory={setSelectedCategory}
-                setLevels={setLevels}
-                categories={categories}
-            />
+            <div className="content-container overlap">
+                <CategorySelect
+                    selectedCategory={selectedCategory}
+                    setSelectedCategory={setSelectedCategory}
+                    setLevels={setLevels}
+                    categories={categories}
+                />
+            </div>
             <TrainContent levels={levels}/>
         </>
     );
