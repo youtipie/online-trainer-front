@@ -2,6 +2,7 @@ import React from 'react';
 import avatarImg from "../../../assets/images/avatar.png";
 import settingsIcon from "../../../assets/images/settings-icon.png";
 import "./profile-navbar.css"
+import Progress from "../../../UI/Progress/Progress";
 
 
 const ProfileNavbar = () => {
@@ -17,7 +18,7 @@ const ProfileNavbar = () => {
                             <p className="current-rank">Холоп</p>
                             <p className="next-rank">Гетьман</p>
                         </div>
-                        <progress max={100} value={70}/>
+                        <Progress max={100} value={70}/>
                     </div>
                 </div>
                 <div className="settings">
