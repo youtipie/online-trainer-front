@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import progressIcon from "../../assets/images/progress-icon.png";
 import trainIcon from "../../assets/images/train-icon.png";
 import profileIcon from "../../assets/images/profile-icon.png";
@@ -7,7 +7,8 @@ import rankIcon from "../../assets/images/rank-icon.png";
 import wholeIcon from "../../assets/images/whole-icon.png";
 import mentalIcon from "../../assets/images/mental-icon.png";
 import "./footer.css";
-import {Link, useLocation} from "react-router-dom";
+import {Link} from "react-router-dom";
+import RepeatingScroll from "../RepeatingScroll/RepeatingScroll";
 
 const footerItems = [
     {img: mentalIcon, route: "/mental", text: "Mental"},
@@ -17,54 +18,36 @@ const footerItems = [
     {img: eatIcon, route: "/eat", text: "Eat"},
     {img: rankIcon, route: "/rank", text: "Rank"},
     {img: wholeIcon, route: "/whole", text: "Whole"}
-
 ]
 
 const Footer = () => {
-    const currentPage = useLocation();
-
-    useEffect(() => {
-        if (currentPage.pathname === "/" || currentPage.pathname === "/profile") {
-            const scrollContainer = document.querySelector('.scroll-container');
-            if (scrollContainer && footerItems.length) {
-                const selectedElement = document.querySelector('.selected');
-                if (selectedElement) {
-                    const containerWidth = scrollContainer.offsetWidth;
-                    const elementWidth = selectedElement.offsetWidth;
-                    const elementOffsetLeft = selectedElement.offsetLeft;
-
-                    const scrollPosition = elementOffsetLeft - (containerWidth / 2) + (elementWidth / 2);
-
-                    scrollContainer.scrollTo({
-                        left: scrollPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        }
-    }, [currentPage]);
 
     return (
         <section id="footer">
             <footer>
-                <div className="scroll-container">
-                    {footerItems.map(item => {
-                            const isSelected = currentPage.pathname === item.route || (currentPage.pathname === "/" && item.route === "/profile");
-
-                            return <div key={item.route} className="footer-item">
-                                <Link
-                                    className={"link" + (isSelected ? " selected" : "")}
-                                    to={item.route}
-                                >
-                                    <div className="footer-img-container">
-                                        <img src={item.img} alt={`${item.text} icon`}/>
-                                    </div>
-                                    <p>{item.text}</p>
-                                </Link>
-                            </div>
-                        }
+                <RepeatingScroll
+                    surroundingBackup={4}
+                    innerStyle={{padding: "3% 3% 1%", borderRadius: "15px"}}
+                    selectedStyle={{
+                        textTransform: "uppercase",
+                        filter: "brightness(125%)",
+                        color: "#dbd098"
+                    }}
+                >
+                    {footerItems.map(item =>
+                        <div className="footer-item">
+                            <Link
+                                className="link"
+                                to={item.route}
+                            >
+                                <div className="footer-img-container">
+                                    <img className="footer-img" src={item.img} alt={`${item.text} icon`}/>
+                                </div>
+                                <p>{item.text}</p>
+                            </Link>
+                        </div>
                     )}
-                </div>
+                </RepeatingScroll>
             </footer>
         </section>
     );

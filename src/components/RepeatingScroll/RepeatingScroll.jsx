@@ -1,33 +1,50 @@
-import React, {useCallback, useLayoutEffect, useRef} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import classes from './RepeatingScroll.module.css';
+
 
 const RepeatingScroll = ({
                              surroundingBackup = 4,
                              outerStyle,
                              innerStyle,
-                             children
+                             children,
+                             selectedStyle
                          }) => {
     const contentRef = useRef(null);
     const scrollRef = useRef(null);
-    const [height, setHeight] = React.useState(0);
+    const [width, setWidth] = React.useState(0);
+    // TODO: Add select logic for selecting clicked element
+    const [selectedIndex, setSelectedIndex] = useState(null);
 
-    const backupHeight = height * surroundingBackup;
+    const backupWidth = width;
 
     const handleScroll = useCallback(() => {
         if (scrollRef.current) {
-            const scroll = scrollRef.current.scrollTop;
-            if (scroll < backupHeight || scroll >= backupHeight + height) {
-                scrollRef.current.scrollTop = backupHeight + (scroll % height)
+            const scroll = scrollRef.current.scrollLeft;
+            const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.offsetWidth;
+            const minWidth = backupWidth;
+            const maxWidth = maxScroll - backupWidth
+            if (scroll < minWidth || scroll >= maxWidth) {
+                scrollRef.current.scrollLeft = backupWidth * (surroundingBackup - 1) + (scroll % width)
             }
         }
-    }, [height]);
+    }, [backupWidth, surroundingBackup, width]);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         if (contentRef.current) {
-            setHeight(contentRef.current.offsetHeight);
-            scrollRef.current.scrollTop = backupHeight;
+            setWidth(contentRef.current.offsetWidth);
+            scrollRef.current.scrollLeft = backupWidth * surroundingBackup;
         }
-    });
+    }, [backupWidth, surroundingBackup]);
+
+    const handleClick = useCallback((event, index) => {
+        // setSelectedIndex(index);
+        const element = event.currentTarget;
+        element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'center'
+        });
+    }, []);
 
     return (
         <div className={classes["scroll-loop-outer"]} style={outerStyle}>
@@ -35,23 +52,48 @@ const RepeatingScroll = ({
                 className={classes["scroll-loop-inner"]}
                 ref={scrollRef}
                 style={{
-                    height,
+                    width,
                     ...innerStyle
                 }}
                 onScroll={handleScroll}
             >
                 {Array(surroundingBackup)
-                    .fill()
-                    .map(() => {
-                        return <div>{children}</div>
-                    })}
-
-                <div ref={contentRef}>{children}</div>
-
+                    .fill(null)
+                    .map((_, i) => (
+                        <div key={`left-${i}`} className={classes["scroll-loop-item"]}>
+                            {children.map((child, index) =>
+                                <div
+                                    className={classes["scroll-loop-item"]}
+                                    style={selectedIndex === index ? selectedStyle : {}}
+                                    onClick={(event) => handleClick(event, index)}>
+                                    {child}
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                <div ref={contentRef} className={classes["scroll-loop-item"]}>
+                    {children.map((child, index) =>
+                        <div
+                            className={classes["scroll-loop-item"]}
+                            style={selectedIndex === index ? selectedStyle : {}}
+                            onClick={(event) => handleClick(event, index)}>
+                            {child}
+                        </div>
+                    )}
+                </div>
                 {Array(surroundingBackup)
-                    .fill()
-                    .map(() => (
-                        <div>{children}</div>
+                    .fill(null)
+                    .map((_, i) => (
+                        <div key={`right-${i}`} className={classes["scroll-loop-item"]}>
+                            {children.map((child, index) =>
+                                <div
+                                    className={classes["scroll-loop-item"]}
+                                    style={selectedIndex === index ? selectedStyle : {}}
+                                    onClick={(event) => handleClick(event, index)}>
+                                    {child}
+                                </div>
+                            )}
+                        </div>
                     ))}
             </div>
         </div>

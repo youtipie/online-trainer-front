@@ -1,8 +1,20 @@
 .scroll-loop-inner {
-    overflow-y: scroll;
+    overflow-x: scroll;
+    white-space: nowrap;
     scrollbar-width: none;
 }
 
 .scroll-loop-inner::-webkit-scrollbar {
     display: none;
+}
+
+.scroll-loop-outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.scroll-loop-item {
+    display: inline-block;
 }
