@@ -11,7 +11,7 @@ const RepeatingScroll = ({
                          }) => {
     const contentRef = useRef(null);
     const scrollRef = useRef(null);
-    const [width, setWidth] = React.useState(0);
+    const [width] = React.useState(0);
     // TODO: Add select logic for selecting clicked element
     const [selectedIndex, setSelectedIndex] = useState(null);
 
