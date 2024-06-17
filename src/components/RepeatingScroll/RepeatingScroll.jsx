@@ -4,6 +4,7 @@ import classes from './RepeatingScroll.module.css';
 
 const RepeatingScroll = ({
                              surroundingBackup = 4,
+                             defaultIndex = null,
                              outerStyle,
                              innerStyle,
                              children,
@@ -11,9 +12,8 @@ const RepeatingScroll = ({
                          }) => {
     const contentRef = useRef(null);
     const scrollRef = useRef(null);
-    const [width] = React.useState(0);
-    // TODO: Add select logic for selecting clicked element
-    const [selectedIndex, setSelectedIndex] = useState(null);
+    const [width, setWidth] = React.useState(0);
+    const [selectedIndex, setSelectedIndex] = useState(defaultIndex);
 
     const backupWidth = width;
 
@@ -32,12 +32,39 @@ const RepeatingScroll = ({
     useEffect(() => {
         if (contentRef.current) {
             setWidth(contentRef.current.offsetWidth);
-            scrollRef.current.scrollLeft = backupWidth * surroundingBackup;
+            if (selectedIndex >= 0 && selectedIndex < children.length) {
+                const childrenLength = children.length;
+                const centralDiv = scrollRef.current.children[Math.floor(childrenLength / 2)];
+                const elementToScrollIndex = selectedIndex ? selectedIndex : Math.floor(centralDiv.children.length / 2)
+                const element = centralDiv.children[elementToScrollIndex];
+                if (element) {
+                    // TODO: Make element more CENTERED
+                    // console.log(width)
+                    // console.log(scrollRef.current.offsetWidth, width, contentRef.current.offsetWidth);
+                    // console.log("1", element.offsetLeft + width / 2 + (contentRef.current.scrollLeft % width))
+                    // console.log(element.offsetLeft + width / 2)
+                    // scrollRef.current.scrollLeft = element.offsetLeft + width / 2 + (scrollRef.current.scrollLeft % width);
+                    // element.scrollIntoView({
+                    //     behavior: 'smooth',
+                    //     inline: 'center'
+                    // });
+                    const containerWidth = contentRef.current.offsetWidth;
+                    const elementWidth = element.offsetWidth;
+                    const elementOffsetLeft = element.offsetLeft;
+
+                    const scrollPosition = elementOffsetLeft - (containerWidth / 2) + (elementWidth);
+                    console.log(scrollPosition)
+                    scrollRef.current.scrollLeft = scrollPosition;
+                }
+            } else {
+                scrollRef.current.scrollLeft = backupWidth * surroundingBackup;
+            }
         }
-    }, [backupWidth, surroundingBackup]);
+        // eslint-disable-next-line
+    }, [width]);
 
     const handleClick = useCallback((event, index) => {
-        // setSelectedIndex(index);
+        setSelectedIndex(index);
         const element = event.currentTarget;
         element.scrollIntoView({
             behavior: 'smooth',
