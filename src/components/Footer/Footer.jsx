@@ -1,26 +1,13 @@
 import React from 'react';
-import progressIcon from "../../assets/images/progress-icon.png";
-import trainIcon from "../../assets/images/train-icon.png";
-import profileIcon from "../../assets/images/profile-icon.png";
-import eatIcon from "../../assets/images/eat-icon.png";
-import rankIcon from "../../assets/images/rank-icon.png";
-import wholeIcon from "../../assets/images/whole-icon.png";
-import mentalIcon from "../../assets/images/mental-icon.png";
-import "./footer.css";
 import {Link} from "react-router-dom";
+import "./footer.css";
 import RepeatingScroll from "../RepeatingScroll/RepeatingScroll";
+import useIndexLocation from "../../hooks/useIndexLocation";
+import {routes} from "../../router/routes";
 
-const footerItems = [
-    {img: mentalIcon, route: "/mental", text: "Mental"},
-    {img: progressIcon, route: "/progress", text: "Progress"},
-    {img: trainIcon, route: "/train", text: "Train"},
-    {img: profileIcon, route: "/profile", text: "Profile"},
-    {img: eatIcon, route: "/eat", text: "Eat"},
-    {img: rankIcon, route: "/rank", text: "Rank"},
-    {img: wholeIcon, route: "/whole", text: "Whole"}
-]
 
 const Footer = () => {
+    const currentPageIndex = useIndexLocation();
 
     return (
         <section id="footer">
@@ -29,12 +16,14 @@ const Footer = () => {
                     surroundingBackup={4}
                     innerStyle={{padding: "3% 3% 1%", borderRadius: "15px"}}
                     selectedStyle={{
-                        textTransform: "uppercase",
+                        // TODO: Fix animation when using uppercase textTransform
+                        // textTransform: "uppercase",
                         filter: "brightness(125%)",
                         color: "#dbd098"
                     }}
+                    defaultIndex={currentPageIndex}
                 >
-                    {footerItems.map(item =>
+                    {routes.map(item =>
                         <div className="footer-item">
                             <Link
                                 className="link"
