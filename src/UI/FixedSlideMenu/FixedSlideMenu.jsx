@@ -1,13 +1,36 @@
 import React from 'react';
 import classes from "./FixedSlideMenu.module.css"
 import whiteArrowDown from "../../assets/images/white-arrow-down.png";
+import greyArrowDown from "../../assets/images/arrow-down.png";
 
-const FixedSlideMenu = ({select, options, onClick, selectStyles, optionsStyles, optionStyles, children}) => {
-    // TODO: Add classes styles instead of inline styles
+
+const FixedSlideMenu = ({
+                            select,
+                            options,
+                            onClick,
+                            selectStyles,
+                            optionsStyles,
+                            optionStyles,
+                            nameStyles,
+                            subnameStyles,
+                            iconStyles,
+                            singleArrow = false,
+                            whiteArrow = true,
+                            children
+                        }) => {
     const [isSelectVisible, setIsSelectVisible] = React.useState(false);
 
-    const iconClasses = [classes["fixed-slide-menu-icon"], isSelectVisible ? classes["up"] : classes["down"]].join(" ");
+    const arrow = whiteArrow ? whiteArrowDown : greyArrowDown;
+    const iconClasses = [
+        classes["fixed-slide-menu-icon"],
+        singleArrow ? classes["single-arrow"] : classes["double-arrow"],
+        isSelectVisible ? classes["up"] : classes["down"]
+    ].join(" ");
     const optionsClasses = [classes["fixed-slide-menu-options"], isSelectVisible ? classes["visible"] : classes["invisible"]].join(" ");
+    const textWrapperClass = [
+        classes["fixed-slide-menu-select-text-wrapper"],
+        singleArrow ? classes["single-arrow"] : classes["double-arrow"]
+    ].join(" ")
 
     function handleClick(option) {
         onClick(option, () => setIsSelectVisible(false))
@@ -22,24 +45,29 @@ const FixedSlideMenu = ({select, options, onClick, selectStyles, optionsStyles, 
             }
             <div style={selectStyles} className={classes["fixed-slide-menu-select"] + " overlap"}
                  onClick={() => setIsSelectVisible(prev => !prev)}>
-                <img
-                    className={iconClasses}
-                    src={whiteArrowDown}
-                    alt="Arrow down icon"
-                />
-                <div className={classes["fixed-slide-menu-select-text-wrapper"]}>
-                    <h1 className={classes.name}>{select.name}</h1>
+                {!singleArrow
+                    &&
+                    <img
+                        style={iconStyles}
+                        className={iconClasses}
+                        src={arrow}
+                        alt="Arrow down icon"
+                    />
+                }
+                <div className={textWrapperClass}>
+                    <h1 style={nameStyles} className={classes.name}>{select.name}</h1>
                     {
                         select.subname
                         &&
-                        <h2 className={classes.subname}>
+                        <h2 style={subnameStyles} className={classes.subname}>
                             {select.subname}
                         </h2>
                     }
                 </div>
                 <img
+                    style={iconStyles}
                     className={iconClasses}
-                    src={whiteArrowDown}
+                    src={arrow}
                     alt="Arrow down icon"
                 />
             </div>
@@ -55,12 +83,12 @@ const FixedSlideMenu = ({select, options, onClick, selectStyles, optionsStyles, 
                                 className={classes["fixed-slide-menu-option"]}
                                 onClick={() => handleClick(option)}
                             >
-                                <div className={classes["fixed-slide-menu-select-text-wrapper"]}>
-                                    <h1 className={classes["name"]}>{option.name}</h1>
+                                <div className={classes["fixed-slide-menu-option-text-wrapper"]}>
+                                    <h1 style={nameStyles} className={classes["name"]}>{option.name}</h1>
                                     {
                                         option.subname
                                         &&
-                                        <h2 className={classes.subname}>
+                                        <h2 style={subnameStyles} className={classes.subname}>
                                             {option.subname}
                                         </h2>
                                     }

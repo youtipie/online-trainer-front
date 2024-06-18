@@ -1,7 +1,24 @@
 import React from 'react';
 import "./bodyStats.css"
+import PeriodSelectMenu from "./PeriodSelectMenu";
+
+// TEMPORARY DATA! JUST TO SHOW SOME FUNCTIONAL
+// IN FUTURE WILL USE HOOKS TO GET DATA FROM SERVER
+const periodsMock = [
+    {name: "День"},
+    {name: "Місяць"},
+    {name: "Рік"}
+]
+
 
 const BodyStats = () => {
+    const [selectedPeriod, setSelectedPeriod] = React.useState(periodsMock[0]);
+
+    function changePeriod(period, closeSelect) {
+        setSelectedPeriod(period)
+        closeSelect()
+    }
+
     return (
         <div className="content-container">
             <div className="body-stats-wrapper">
@@ -21,15 +38,12 @@ const BodyStats = () => {
                         </div>
                     </div>
                     <div className="body-stats-col">
-                        <div className="content-container light body-stats-text-container">
-                            <p className="body-stats-text">Вага ></p>
-                            {/*TODO: Do normal and customizable select menu!*/}
-                            {/*<FixedSlideMenu*/}
-                            {/*    select={{name: "Місяць"}}*/}
-                            {/*    options={[{name: "День"}]}*/}
-                            {/*    onClick={(option) => console.log(option)}*/}
-                            {/*    selectStyles={{fontSize: "0.7em", fontWeight: "400", height: "auto"}}*/}
-                            {/*/>*/}
+                        <div style={{padding: "0"}} className="content-container light body-stats-text-container">
+                            <PeriodSelectMenu
+                                selectedPeriod={selectedPeriod}
+                                periods={periodsMock}
+                                changePeriod={changePeriod}
+                            />
                         </div>
                         <div className="content-container light body-stats-text-container">
                             <div className="body-stats-input-wrapper">

@@ -20,7 +20,13 @@ const Eat = () => {
                             subname: "Megatest2"
                         }]}
                         onClick={(option) => console.log(option)}
-                        selectStyles={{height: "4em", marginTop: "2em", width: "80%", fontSize: "0.8em"}}
+                        selectStyles={{
+                            height: "4em",
+                            marginTop: "2em",
+                            width: "80%",
+                            fontSize: "0.8em",
+                            borderRadius: "10px"
+                        }}
                         optionsStyles={{height: "20em"}}
                     >
                         <div style={{display: "flex", justifyContent: "center", alignItems: "center", height: "100%"}}>
@@ -39,7 +45,7 @@ const Eat = () => {
                             key={time}
                             select={{name: time}}
                             options={[{name: "Сир - 500 кг"}]}
-                            selectStyles={{fontSize: "0.9em", height: "3em", width: "80%"}}
+                            selectStyles={{fontSize: "0.9em", height: "3em", width: "80%", borderRadius: "10px"}}
                             optionsStyles={{width: "80%"}}
                             iconStyles={{width: "2em"}}
                         />

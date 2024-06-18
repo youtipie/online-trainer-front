@@ -4,6 +4,7 @@ body {
     box-sizing: border-box;
     font-family: "Libre Franklin", sans-serif;
     font-weight: 400;
+    /*TODO: USE REM INSTEAD OF EM!!!!!!! REFACTOR ALL CSS STYLES*/
     font-size: 3vw;
     color: #adadad;
 }
