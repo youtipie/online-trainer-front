@@ -37,7 +37,6 @@ footer {
     justify-content: center;
     align-items: center;
     /*min-width: 18%;*/
-    scroll-snap-align: center;
 }
 
 .footer-item p {

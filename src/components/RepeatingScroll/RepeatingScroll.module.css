@@ -3,7 +3,6 @@
     overflow-x: scroll;
     white-space: nowrap;
     scrollbar-width: none;
-    scroll-snap-type: x proximity;
 }
 
 .scroll-loop-inner::-webkit-scrollbar {
