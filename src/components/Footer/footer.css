@@ -38,5 +38,9 @@ footer {
     align-items: center;
     /*min-width: 18%;*/
     scroll-snap-align: center;
-    margin: 0 0.5em;
+}
+
+.footer-item p {
+    min-width: 6em;
+    text-align: center;
 }

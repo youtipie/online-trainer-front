@@ -23,6 +23,7 @@ const RepeatingScroll = ({
             const maxScroll = scrollRef.current.scrollWidth - scrollRef.current.offsetWidth;
             const minWidth = backupWidth;
             const maxWidth = maxScroll - backupWidth
+            console.log(scroll)
             if (scroll < minWidth || scroll >= maxWidth) {
                 scrollRef.current.scrollLeft = backupWidth * (surroundingBackup - 1) + (scroll % width)
             }
@@ -31,46 +32,36 @@ const RepeatingScroll = ({
 
     useEffect(() => {
         if (contentRef.current) {
-            setWidth(contentRef.current.offsetWidth);
             if (selectedIndex >= 0 && selectedIndex < children.length) {
                 const childrenLength = children.length;
                 const centralDiv = scrollRef.current.children[Math.floor(childrenLength / 2)];
-                const elementToScrollIndex = selectedIndex ? selectedIndex : Math.floor(centralDiv.children.length / 2)
+                const elementToScrollIndex = selectedIndex !== null ? selectedIndex : Math.floor(centralDiv.children.length / 2)
                 const element = centralDiv.children[elementToScrollIndex];
                 if (element) {
-                    // TODO: Make element more CENTERED
-                    // console.log(width)
-                    // console.log(scrollRef.current.offsetWidth, width, contentRef.current.offsetWidth);
-                    // console.log("1", element.offsetLeft + width / 2 + (contentRef.current.scrollLeft % width))
-                    // console.log(element.offsetLeft + width / 2)
-                    // scrollRef.current.scrollLeft = element.offsetLeft + width / 2 + (scrollRef.current.scrollLeft % width);
-                    // element.scrollIntoView({
-                    //     behavior: 'smooth',
-                    //     inline: 'center'
-                    // });
-                    const containerWidth = contentRef.current.offsetWidth;
-                    const elementWidth = element.offsetWidth;
-                    const elementOffsetLeft = element.offsetLeft;
-
-                    const scrollPosition = elementOffsetLeft - (containerWidth / 2) + (elementWidth);
-                    console.log(scrollPosition)
-                    scrollRef.current.scrollLeft = scrollPosition;
+                    element.scrollIntoView({
+                        behavior: 'instant',
+                        block: "center",
+                        inline: 'center'
+                    });
                 }
             } else {
                 scrollRef.current.scrollLeft = backupWidth * surroundingBackup;
             }
+            setWidth(contentRef.current.offsetWidth);
         }
         // eslint-disable-next-line
-    }, [width]);
+    }, []);
 
     const handleClick = useCallback((event, index) => {
         setSelectedIndex(index);
         const element = event.currentTarget;
-        element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-            inline: 'center'
-        });
+        setTimeout(() => {
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+                inline: 'center'
+            });
+        }, 100)
     }, []);
 
     return (
@@ -79,7 +70,6 @@ const RepeatingScroll = ({
                 className={classes["scroll-loop-inner"]}
                 ref={scrollRef}
                 style={{
-                    width,
                     ...innerStyle
                 }}
                 onScroll={handleScroll}

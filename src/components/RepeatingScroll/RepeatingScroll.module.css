@@ -1,7 +1,9 @@
 .scroll-loop-inner {
+    display: flex;
     overflow-x: scroll;
     white-space: nowrap;
     scrollbar-width: none;
+    scroll-snap-type: x proximity;
 }
 
 .scroll-loop-inner::-webkit-scrollbar {
@@ -9,12 +11,14 @@
 }
 
 .scroll-loop-outer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
+    position: relative;
     width: 100%;
 }
 
 .scroll-loop-item {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
 }

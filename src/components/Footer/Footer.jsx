@@ -16,8 +16,7 @@ const Footer = () => {
                     surroundingBackup={4}
                     innerStyle={{padding: "3% 3% 1%", borderRadius: "15px"}}
                     selectedStyle={{
-                        // TODO: Fix animation when using uppercase textTransform
-                        // textTransform: "uppercase",
+                        textTransform: "uppercase",
                         filter: "brightness(125%)",
                         color: "#dbd098"
                     }}
