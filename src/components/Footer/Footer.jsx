@@ -23,7 +23,7 @@ const Footer = () => {
                     defaultIndex={currentPageIndex}
                 >
                     {routes.map(item =>
-                        <div className="footer-item">
+                        <div key={item.route} className="footer-item">
                             <Link
                                 className="link"
                                 to={item.route}
