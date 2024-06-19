@@ -15,7 +15,7 @@
     display: flex;
 }
 
-.rank {
+.profile-rank-wrapper {
     align-self: flex-start;
     margin-left: 5px;
     margin-right: auto;

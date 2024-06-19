@@ -8,6 +8,7 @@ import wholeIcon from "../assets/images/whole-icon.png";
 import Train from "../pages/Train/Train";
 import Profile from "../pages/Profile/Profile";
 import Eat from "../pages/eat/Eat";
+import Rank from "../pages/Rank/Rank";
 
 export const routeNames = {
     MENTAL: "/mental",
@@ -25,6 +26,6 @@ export const routes = [
     {img: trainIcon, route: routeNames.TRAIN, text: "Train", exact: true, component: <Train/>},
     {img: profileIcon, route: routeNames.PROFILE, text: "Profile", exact: true, component: <Profile/>},
     {img: eatIcon, route: routeNames.EAT, text: "Eat", exact: true, component: <Eat/>},
-    {img: rankIcon, route: routeNames.RANK, text: "Rank", exact: true, component: null},
+    {img: rankIcon, route: routeNames.RANK, text: "Rank", exact: true, component: <Rank/>},
     {img: wholeIcon, route: routeNames.WHOLE, text: "Whole", exact: true, component: null}
 ]

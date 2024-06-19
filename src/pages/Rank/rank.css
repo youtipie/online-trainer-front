@@ -1,0 +1,69 @@
+.rank-places-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.rank-places {
+    width: 80%;
+}
+
+.rank-choose-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rank-choose {
+    border-radius: 10px;
+}
+
+.rank-choose h2 {
+    margin: 0 0.5em;
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+.rank-choose-header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rank-choose-header {
+    border-radius: 10px;
+    color: #DCD198;
+}
+
+.rank-choose-header h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.rank-column-header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.rank-column-header {
+    font-size: 1.3em;
+    font-weight: 700;
+    margin: 0.1em 0;
+    line-height: 0;
+}
+
+.rank-column-header.rank {
+    margin-right: auto;
+}
+
+.rank-column-header.name {
+    margin-right: auto;
+}
+
+.rank-column-header.score {
+    margin-left: auto;
+    color: #DCD198;
+}

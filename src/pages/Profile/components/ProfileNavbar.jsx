@@ -10,7 +10,7 @@ const ProfileNavbar = () => {
         <section id="stats">
             <nav>
                 <img className="avatar-img" src={avatarImg} alt="Avatar"/>
-                <div className="rank">
+                <div className="profile-rank-wrapper">
                     <h3 id="username">User #0</h3>
                     <h3 id="user-rank">Ранг 0</h3>
                     <div id="xp-progress">
