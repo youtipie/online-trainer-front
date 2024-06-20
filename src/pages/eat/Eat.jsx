@@ -53,7 +53,6 @@ const Eat = () => {
                 </div>
             </div>
             <BodyStats/>
-            <BodyStatsProgress max={100} value={70}/>
         </div>
     );
 };

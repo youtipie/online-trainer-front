@@ -1,12 +1,10 @@
 .stats-progress {
-    position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    bottom: 9em;
-    left: 0;
     width: 100%;
+    margin-bottom: 0.5em;
 }
 
 .stats-progress-wrapper {

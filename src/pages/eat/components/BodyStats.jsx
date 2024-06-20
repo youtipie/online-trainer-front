@@ -1,6 +1,7 @@
 import React from 'react';
 import "./bodyStats.css"
 import PeriodSelectMenu from "./PeriodSelectMenu";
+import BodyStatsProgress from "./BodyStatsProgress";
 
 // TEMPORARY DATA! JUST TO SHOW SOME FUNCTIONAL
 // IN FUTURE WILL USE HOOKS TO GET DATA FROM SERVER
@@ -57,6 +58,7 @@ const BodyStats = () => {
                     </div>
                 </div>
             </div>
+            <BodyStatsProgress max={100} value={70}/>
         </div>
     );
 };
