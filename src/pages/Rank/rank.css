@@ -35,6 +35,7 @@
     z-index: 1;
     margin: 0.1em;
     background: inherit;
+    border-radius: inherit;
 }
 
 .rank-choose.selected::before {
