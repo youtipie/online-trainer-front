@@ -21,6 +21,7 @@ const Rank = () => {
                 <div className="rank-choose-container">
                     {categories.map(category => (
                         <div
+                            key={category}
                             className={"content-container light rank-choose" +
                                 (selectedCategoty === category ? " selected" : "")}
                             onClick={() => changeCategory(category)}

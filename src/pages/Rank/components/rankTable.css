@@ -83,3 +83,21 @@
 .rank-column.top.top3 {
     color: #F8BC81;
 }
+
+.rank-current-user {
+    background-color: #494949;
+    height: 3em;
+}
+
+.rank-current-user p {
+    color: #ADADAD;
+}
+
+.rank-current-user.fixed-row {
+    position: sticky;
+    position: -webkit-sticky;
+    width: 100%;
+    z-index: 1000;
+    bottom: 8.5em;
+    top: 0;
+}

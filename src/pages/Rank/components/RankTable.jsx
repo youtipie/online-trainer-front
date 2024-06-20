@@ -1,6 +1,18 @@
 import React from 'react';
 import "./rankTable.css"
 
+const mockData = [];
+
+for (let i = 0; i < 55; i++) {
+    mockData.push({rank: 4 + i, name: `Рак ${4 + i}`, score: 10000 - i})
+}
+
+mockData.push({rank: 59, name: "You", score: 9945})
+
+for (let i = 60; i < 100; i++) {
+    mockData.push({rank: i, name: `Рак ${i}`, score: 10000 - i})
+}
+
 
 const RankTable = () => {
     return (
@@ -63,28 +75,20 @@ const RankTable = () => {
                     <p>10000000 бал</p>
                 </td>
             </tr>
-            <tr className="rank-row">
-                <td className="rank-column rank">
-                    <p>4</p>
-                </td>
-                <td className="rank-column name" colSpan="2">
-                    <p>Рак 4</p>
-                </td>
-                <td className="rank-column score">
-                    <p>10000 бал</p>
-                </td>
-            </tr>
-            <tr className="rank-row">
-                <td className="rank-column rank">
-                    <p>5</p>
-                </td>
-                <td className="rank-column name" colSpan="2">
-                    <p>Рак 5</p>
-                </td>
-                <td className="rank-column score">
-                    <p>1000 бал</p>
-                </td>
-            </tr>
+            {/*TODO: MAKE SOMETHING BETTER THAN item.name==="you"*/}
+            {mockData.map(item =>
+                <tr key={item.rank} className={"rank-row" + (item.name === "You" ? " rank-current-user fixed-row" : "")}>
+                    <td className="rank-column rank">
+                        <p>{item.rank}</p>
+                    </td>
+                    <td className="rank-column name" colSpan="2">
+                        <p>{item.name}</p>
+                    </td>
+                    <td className="rank-column score">
+                        <p>{item.score} бал</p>
+                    </td>
+                </tr>
+            )}
             </tbody>
         </table>
     );
