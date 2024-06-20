@@ -1,0 +1,85 @@
+.rank-table {
+    margin: 2%;
+    border-spacing: 0 0.5em;
+    border-collapse: separate;
+}
+
+.rank-table td:first-child,
+.rank-table th:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+.rank-table td:last-child,
+.rank-table th:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+.rank-row {
+    display: table-row;
+}
+
+.rank-column.header {
+    font-size: 1.3em;
+}
+
+.rank-column p {
+    margin: 0;
+    font-weight: 700;
+}
+
+.rank-column.header.rank {
+    color: inherit;
+}
+
+.rank-column.rank {
+    text-align: center;
+    color: #494949;
+}
+
+.rank-column.pfp {
+    width: 3em;
+    /*padding: 0 0.5em;*/
+}
+
+.rank-column.name {
+    text-align: left;
+}
+
+.rank-column.score {
+    text-align: right;
+    padding-right: 0.5em;
+}
+
+.rank-column.header.score {
+    color: #DCD198;
+}
+
+/*TODO: REMOVE AND ADD REAL PFP*/
+.rank-pfp-placeholder {
+    width: 2.5em;
+    height: 2em;
+    border-radius: 10px;
+    background-color: #494949;
+}
+
+.rank-column.top {
+    font-size: 1.7em;
+    font-weight: 700;
+}
+
+.rank-column.top.score {
+    font-size: inherit;
+    font-weight: 700;
+}
+
+.rank-column.top.top1 {
+    color: #DCD198;
+}
+
+.rank-column.top.top2 {
+    color: #C0C0C0
+}
+
+.rank-column.top.top3 {
+    color: #F8BC81;
+}
