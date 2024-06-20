@@ -4,7 +4,6 @@ import FixedSlideMenu from "../../UI/FixedSlideMenu/FixedSlideMenu";
 import DailyEatStats from "./components/DailyEatStats";
 import SlideMenu from "../../UI/SlideMenu/SlideMenu";
 import BodyStats from "./components/BodyStats";
-import BodyStatsProgress from "./components/BodyStatsProgress";
 
 const eatTimes = ["Сніданок", "Обід", "Вечеря", "Інше", "Трекер води", "Трекер сну"]
 
